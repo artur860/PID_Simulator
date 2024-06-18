@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PID Simulator</title>
+    <!-- Import Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="center-align">PID Simulator</h1>
+        <form id="pid-form" class="col s12">
+            <div class="row">
+                <div class="input-field col s4">
+                    <input type="number" id="kp" name="kp" value="1" class="validate">
+                    <label for="kp">Kp</label>
+                </div>
+                <div class="input-field col s4">
+                    <input type="number" id="ki" name="ki" value="2" class="validate">
+                    <label for="ki">Ki</label>
+                </div>
+                <div class="input-field col s4">
+                    <input type="number" id="kd" name="kd" value="0.6" class="validate">
+                    <label for="kd">Kd</label>
+                </div>
+            </div>
+            <div class="row">
+                <label for="setpoint" class="col s12">Setpoint: <span id="setpoint-value">50</span></label>
+                <div class="input-field col s12">
+                    <p class="range-field">
+                        <input type="range" id="setpoint" name="setpoint" min="0" max="100" step="0.1" value="50" oninput="updateSetpointValue()">
+                    </p>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col s12">
+                <canvas id="pid-canvas"></canvas>
+            </div>
+        </div>
+    </div>
+    <!-- Import Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="script.js"></script>
+    <script>startSimulation()</script>
+</body>
+</html>
